@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Petuk Biriyana and Resturent — Bill</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" href="images/Petuk_logo.jpg" type="image/jpeg" /> 
+</head>
+<body>
+  <div class="container app-layout">
+    
+    <header class="header">
+      <div class="brand">
+        <img src="images/Petuk_logo.jpg" alt="Petuk Biriyana Logo" class="restaurant-logo" />
+        <h1>Petuk Biriyana and restaurant</h1>
+        <p class="tag">Fresh • Fast • Friendly</p>
+        <p class="tag">petukbiriyani2024@gmail.com • 9733579705 • 8617054124</p>
+        <p class="tag">Jalchak • Pingla • Paschim Medinipur</p>
+      </div>
+      <div class="meta">
+        <p>Date: <strong id="date"></strong></p>
+        <div class="actions">
+          <button id="darkModeToggle" class="btn secondary">🌙 Dark Mode</button>
+          <button id="printBtn" class="btn secondary">Print</button>
+          <button id="clearBtn" class="btn danger">Clear</button>
+        </div>
+      </div>
+    </header>
+    
+    <div id="printContainer" class="print-text-receipt"></div>
+
+    <main class="main-content-split">
+        
+      <div class="left-sidebar">
+          <form id="addForm" class="add-form" aria-label="Add item to bill">
+            <input id="itemName" type="text" placeholder="Item name" aria-label="Item name" required />
+            <input id="itemQty" type="number" placeholder="Qty" min="1" value="1" aria-label="Quantity" required />
+            <input id="itemPrice" type="number" placeholder="Price" min="0" step="0.01" aria-label="Price" required />
+            <button type="submit" class="btn primary">Add</button>
+          </form>
+          
+          <div class="history-tabs">
+            <button id="tabCurrent" class="tab-btn active">Current Bill</button>
+            <button id="tabHistory" class="tab-btn">History</button>
+          </div>
+          
+          <div id="quickAddMenu" class="quick-add-scroll menu-sections active-area"></div>
+          
+          <div id="billingHistory" class="history-list-scroll hidden-area">
+            <ul id="historyList">
+                </ul>
+          </div>
+          
+      </div>
+
+      <div class="right-bill-area">
+          <div class="bill-table-wrapper">
+              <table id="billTable" class="bill-table" aria-label="Bill items">
+                <thead>
+                  <tr>
+                    <th class="col-item">Item</th>
+                    <th class="col-qty">Qty</th>
+                    <th class="col-price">Price</th>
+                    <th class="col-amt">Amount</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="billBody">
+                  </tbody>
+              </table>
+          </div>
+          <table class="bill-table-footer-static" aria-hidden="true">
+            <tfoot>
+              <tr class="sep-row"><td colspan="4" class="sep">----------------------------------</td><td></td></tr>
+              <tr class="total-row">
+                <td colspan="2" class="text-left">Subtotal</td>
+                <td id="totalTextLabel" class="text-right"> </td>
+                <td id="totalAmount">Rs. 0.00</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <div class="payment-row">
+            <label for="paymentSelect">Payment:</label>
+            <select id="paymentSelect" aria-label="Payment method">
+              <option>UPI</option>
+              <option>Cash</option>
+              <option>Card</option>
+              <option>Other</option>
+            </select>
+          </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <div class="print-only receipt-footer">
+        <p id="printPayment">Payment: UPI</p>
+      </div>
+      <small>Thank you for dining with us.</small>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

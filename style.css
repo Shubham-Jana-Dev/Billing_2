@@ -1,0 +1,375 @@
+/* Base styles - Clean & Fresh Color Palette */
+:root {
+  /* LIGHT THEME VARIABLES */
+  --primary-color: #28a745; 
+  --danger-color: #dc3545;
+  --secondary-color: #6c757d;
+  --bg-color: #f0f4f7; 
+  --card-bg: #ffffff; 
+  --text-color: #343a40; 
+  --soft-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --border-radius: 6px;
+  --light-border: #dee2e6;
+  --hover-bg: #e9ecef;
+}
+
+/* DARK MODE VARIABLES */
+body.dark-mode {
+    --primary-color: #00bcd4; 
+    --danger-color: #ff5722; 
+    --secondary-color: #90a4ae;
+    --bg-color: #121212; 
+    --card-bg: #1e1e1e; 
+    --text-color: #e0e0e0; 
+    --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --light-border: #383838;
+    --hover-bg: #282828;
+}
+
+/* --- OPTIMIZED FOR ONE-WINDOW LAYOUT (NO SCROLLING) --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  padding: 20px;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1400px; 
+  max-height: calc(100vh - 40px);
+  width: 100%;
+  margin: 0 auto;
+  background: var(--card-bg); 
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--soft-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- MAIN TWO-COLUMN LAYOUT --- */
+.main-content-split {
+  flex-grow: 1; 
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 25px;
+  overflow: hidden; 
+}
+
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.right-bill-area {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 5px; 
+}
+
+/* Scroll area styling */
+#quickAddMenu, .bill-table-wrapper, .history-list-scroll {
+  flex-grow: 1; 
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  padding-right: 15px; 
+  margin-right: -15px; 
+}
+
+/* Scrollbar Styles */
+.quick-add-scroll::-webkit-scrollbar, .bill-table-wrapper::-webkit-scrollbar, .history-list-scroll::-webkit-scrollbar { width: 8px; }
+.quick-add-scroll::-webkit-scrollbar-track, .bill-table-wrapper::-webkit-scrollbar-track, .history-list-scroll::-webkit-scrollbar-track { background: var(--light-border); border-radius: 10px; }
+.quick-add-scroll::-webkit-scrollbar-thumb, .bill-table-wrapper::-webkit-scrollbar-thumb, .history-list-scroll::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 10px; }
+.quick-add-scroll::-webkit-scrollbar-thumb:hover, .bill-table-wrapper::-webkit-scrollbar-thumb:hover, .history-list-scroll::-webkit-scrollbar-thumb:hover { background: #5a646c; }
+body.dark-mode .quick-add-scroll::-webkit-scrollbar-track, 
+body.dark-mode .bill-table-wrapper::-webkit-scrollbar-track,
+body.dark-mode .history-list-scroll::-webkit-scrollbar-track { background: #383838; }
+body.dark-mode .quick-add-scroll::-webkit-scrollbar-thumb, 
+body.dark-mode .bill-table-wrapper::-webkit-scrollbar-thumb,
+body.dark-mode .history-list-scroll::-webkit-scrollbar-thumb { background: #5a5a5a; }
+body.dark-mode .quick-add-scroll::-webkit-scrollbar-thumb:hover, 
+body.dark-mode .bill-table-wrapper::-webkit-scrollbar-thumb:hover,
+body.dark-mode .history-list-scroll::-webkit-scrollbar-thumb:hover { background: #757575; }
+
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-shrink: 0; 
+  border-bottom: 2px solid var(--primary-color); 
+  padding-bottom: 15px;
+}
+
+.brand {
+  display: flex; 
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+
+/* Circular Logo Styling */
+.restaurant-logo {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-right: 15px; 
+    border: 2px solid var(--primary-color); 
+    flex-shrink: 0; 
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 2em;
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.brand p.tag {
+  margin: 5px 0 0 0;
+  font-size: 0.85em;
+  color: var(--secondary-color);
+  flex-basis: 100%; 
+  margin-left: 75px; 
+}
+
+
+/* Buttons & Form */
+.btn { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: 500; margin-left: 5px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+.btn:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+.primary { background-color: var(--primary-color); color: white; }
+.secondary { background-color: var(--light-border); color: var(--text-color); }
+.secondary:hover { background-color: var(--secondary-color); color: white; }
+.danger { background-color: var(--danger-color); color: white; }
+
+.add-form { display: flex; gap: 10px; margin-bottom: 20px; flex-shrink: 0; }
+.add-form input { 
+    padding: 10px; 
+    border: 1px solid var(--light-border); 
+    border-radius: 4px; 
+    background-color: var(--card-bg); 
+    color: var(--text-color); 
+    transition: border-color 0.2s; 
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); 
+    
+    /* CRITICAL FIX: Allows inputs to compress */
+    min-width: 0;
+    flex-grow: 1; /* Allow them to grow */
+}
+
+/* CRITICAL FIX: Ensure the button is visible */
+.add-form button.btn.primary {
+    flex: 0 0 auto; /* Don't grow, don't shrink, just take content size */
+    white-space: nowrap;
+    min-width: 60px; 
+}
+
+/* Refined input proportions */
+#itemName { flex-grow: 3; } 
+#itemQty { flex-grow: 1; max-width: 70px; } 
+#itemPrice { flex-grow: 2; } 
+
+
+/* Quick Add Styling */
+.menu-sections h3 {
+    width: 100%;
+    margin: 15px 0 5px 0;
+    padding: 5px 10px;
+    background-color: var(--hover-bg); 
+    color: var(--primary-color);
+    font-size: 1.15em;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Two-column menu grid */
+.menu-category-buttons {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.quick-add-btn {
+  font-size: 0.85em;
+  padding: 8px 12px;
+  width: 100%; 
+  background-color: var(--hover-bg); 
+  color: var(--text-color);
+  border-radius: 6px;
+  border: 1px solid var(--light-border);
+}
+
+/* Glow effect for added items */
+.quick-add-btn.item-added {
+    background-color: #fff3cd; 
+    color: #856404; 
+    border-color: #ffeeba;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.6); 
+    font-weight: 600;
+}
+body.dark-mode .quick-add-btn.item-added {
+    background-color: #3b300a; 
+    color: #ffc107; 
+    border-color: #ffc107;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+}
+
+.quick-add-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-color: var(--primary-color);
+}
+
+/* --- History Tabs Styling --- */
+.history-tabs {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--light-border);
+    background-color: var(--hover-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    border-radius: 0; 
+}
+
+.tab-btn:first-child { border-top-left-radius: var(--border-radius); border-bottom-left-radius: var(--border-radius); }
+.tab-btn:last-child { border-top-right-radius: var(--border-radius); border-bottom-right-radius: var(--border-radius); }
+.tab-btn:not(:last-child) { border-right: none; }
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    z-index: 1; 
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: var(--light-border);
+}
+
+/* Hide/Show Content Areas */
+.hidden-area { display: none !important; }
+.active-area { display: block; }
+.history-list-scroll { 
+    padding-left: 0; 
+    margin-left: -5px; 
+}
+
+/* History List Styling */
+#historyList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#historyList li {
+    background-color: var(--card-bg);
+    border: 1px solid var(--light-border);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+#historyList li:hover {
+    background-color: var(--hover-bg);
+    cursor: default; /* Remove pointer cursor from list item */
+}
+body.dark-mode #historyList li { background-color: #282828; }
+body.dark-mode #historyList li:hover { background-color: #383838; }
+
+.history-info {
+    flex-grow: 1;
+}
+
+.history-time {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+.history-total {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+.small-btn {
+    padding: 5px 10px !important;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+/* Table and Print Styles */
+.bill-table { width: 100%; border-collapse: collapse; }
+.bill-table th, .bill-table td { padding: 8px 10px; text-align: left; font-size: 0.9em; border-bottom: 1px solid var(--light-border); }
+.bill-table thead th { border-bottom: 2px solid var(--light-border); position: sticky; top: 0; background: var(--card-bg); z-index: 10; color: var(--secondary-color); }
+.col-qty, .col-price, .col-amt { text-align: right; }
+.bill-table-footer-static { width: 100%; border-collapse: collapse; margin-top: 5px; flex-shrink: 0; }
+.bill-table-footer-static tfoot td { padding: 10px; border-top: 3px solid var(--primary-color); font-weight: bold; font-size: 1.1em; background-color: var(--hover-bg); }
+
+/* --- Crucial Display Fixes --- */
+
+/* 1. HIDE THE RECEIPT TEXT CONTAINER ON SCREEN */
+#printContainer {
+    display: none; 
+}
+
+/* 2. Hide other print-only elements on screen */
+.print-only { 
+    display: none; 
+}
+
+/* --- Print Media Query (Only Active When Printing) --- */
+@media print {
+    html, body, .container { height: auto !important; max-height: none !important; overflow: visible !important; }
+    .main-content-split, .left-sidebar, .right-bill-area, .bill-table-wrapper, .bill-table-footer-static { overflow: visible !important; padding: 0 !important; margin: 0 !important; flex-grow: 0 !important; display: block !important; width: auto !important; }
+    
+    /* Hide all UI elements not needed for the receipt */
+    .header, .add-form, .history-tabs, #quickAddMenu, #billingHistory, .actions, .payment-row, .remove, .footer small, .bill-table-footer-static { display: none !important; }
+    
+    /* Hide the visual bill table */
+    .bill-table { display: none !important; }
+    
+    /* SHOW the text receipt container, formatted for thermal printer style */
+    .print-text-receipt { 
+        display: block !important; 
+        font-family: 'Consolas', 'Courier New', monospace; 
+        white-space: pre; 
+        line-height: 1.3; 
+        padding: 0; 
+        margin: 0; 
+        color: #000; 
+        font-size: 11px; 
+    }
+    
+    .container, .app-layout { width: 320px !important; max-width: 90%; margin: 0 auto; box-shadow: none; padding: 0; }
+    .print-only.receipt-footer { display: block !important; } /* Show payment in the footer */
+}
